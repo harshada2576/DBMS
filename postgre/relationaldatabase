@@ -1,0 +1,123 @@
+--Field/Column Level Constraints or in-line constraint
+CREATE TABLE EmpTable1
+
+(
+
+EmpNo INT PRIMARY KEY,
+
+"First Name" VARCHAR(15) NOT NULL,
+
+LastName VARCHAR(15) NOT NULL,
+
+Address VARCHAR(50) UNIQUE NULL,
+
+City VARCHAR(20) DEFAULT 'MUMBAI',
+
+State VARCHAR(20) DEFAULT 'MAHARASHTRA',
+
+Salary FLOAT DEFAULT 100 CHECK (Salary > 0) NULL
+
+);
+--Table Level Constraints / out-of-line constraints
+CREATE TABLE EmpTable1
+
+(
+
+EmpNo INT,
+
+"First Name" VARCHAR(15) NOT NULL,
+
+LastName VARCHAR(15) NOT NULL,
+
+Address VARCHAR(50) NULL,
+
+City VARCHAR(20) DEFAULT 'MUMBAI',
+
+State VARCHAR(20) DEFAULT 'MAHARASHTRA',
+
+Salary FLOAT DEFAULT 100 NULL,
+
+PRIMARY KEY(EmpNo),
+
+UNIQUE(Address),
+
+CHECK (Salary > 0)
+
+);
+CREATE TABLE EmpTable1
+
+(
+
+EmpNo INT,
+
+"First Name" VARCHAR(15) NOT NULL,
+
+LastName VARCHAR(15) NOT NULL,
+
+Address VARCHAR(50) NULL,
+
+City VARCHAR(20) DEFAULT 'MUMBAI',
+
+State VARCHAR(20) DEFAULT 'MAHARASHTRA',
+
+Salary FLOAT DEFAULT 100 NULL,
+
+PRIMARY KEY(EmpNo),
+
+UNIQUE(Address),
+
+CHECK (Salary > 0 AND Salary < 100000)
+
+);
+DROP TABLE EmpTable1;
+
+CREATE TABLE EmpTable1
+
+(
+
+EmpNo INT,
+
+"First Name" VARCHAR(15) NOT NULL,
+
+LastName VARCHAR(15) NOT NULL,
+
+Address VARCHAR(50) NULL,
+
+City VARCHAR(20) DEFAULT 'MUMBAI',
+
+State VARCHAR(20) DEFAULT 'MAHARASHTRA',
+
+Salary FLOAT DEFAULT 100 NULL,
+
+PRIMARY KEY(EmpNo),
+
+UNIQUE(Address),
+
+CHECK (Salary BETWEEN 0 AND 100000)
+
+);
+
+
+CHECK (Salary = 10000 OR Salary = 20000 OR Salary = 30000)
+
+CHECK (Salary IN(10000, 20000, 30000))
+
+CHECK (Salary = ANY('{10000, 20000, 30000}' :: int[]))
+
+CHECK ((Salary > 0 AND Salary <= 10000) OR (Salary >= 20000 AND Salary <= 30000))
+--PRIMARY KEY Constraint
+INSERT INTO EmpTable1
+
+(EmpNo, "First Name", LastName, Address, City, State, Salary)
+
+VALUES(1, 'PRASHANT', 'SAWANT', 'WADALA(E)', 'MUMBAI', 'MAHARASHTRA', 1000);
+
+
+INSERT INTO EmpTable1 ("First Name", EmpNo, LastName, Salary, Address, City, State) VALUES('AKASH', 1, 'CHABRIA', 2000, 'KHAR(W)', 'MUMBAI', 'MAHARASHTRA') ;
+
+--Error Message: duplicate key value violates unique constraint "emptable1_pkey"
+--UNIQUE Constraint
+INSERT INTO EmpTable VALUES(3, 'VIPUL', 'THOSAR', 'KALYAN(W)', 'THANE', 'MAHARASHTRA', 3000);
+
+INSERT INTO EmpTable VALUES(4, 'AVANI', 'KAMATH', ' KALYAN(W)', 'THANE', 'MAHARASHTRA', 1500);
+--Error: Unique Constraint violated.
