@@ -55,3 +55,204 @@ SELECT CONCAT('Hello ', "First Name", ' ', LastName) FROM EmpTable;
 SELECT CONCAT("First Name", ' ', LastName)  FullName FROM EmpTable;
 SELECT CONCAT("First Name", ' ', LastName)  FullName FROM EmpTable AS et;
 
+SELECT CONCAT("First Name", ' ', LastName) FullName FROM EmpTable;
+
+SELECT CONCAT("First Name", ' ', LastName) AS FullName FROM EmpTable;
+
+SELECT CONCAT("First Name", ' ', LastName) "Full Name" FROM EmpTable;
+
+SELECT CONCAT("First Name", ' ', LastName) AS "Full Name" FROM EmpTable;
+
+SELECT CONCAT("First Name", ' ', LastName) FullName FROM EmpTable AS et;
+
+SELECT CONCAT("First Name", ' ', LastName) AS FullName FROM EmpTable et;
+
+SELECT CONCAT("First Name", ' ', LastName) FullName FROM EmpTable AS "e t";
+
+SELECT CONCAT("First Name", ' ', LastName) AS FullName FROM EmpTable "et";
+
+INSERT INTO EmpTable VALUES(NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+
+SELECT EmpNo, "First Name", 'Permanent' as Typeof Employee FROM Emptable;
+
+SELECT EmpNo, "First Name", LastName, Salary * 2 as "New Salary" FROM EmpTable;
+
+SELECT EmpNo, "First Name", LastName, Salary / 2 as "New Salary" FROM EmpTable;
+
+SELECT EmpNo, "First Name", LastName, CAST(Salary AS INT) % 2.0 as "New Salary" FROM empTable;
+
+SELECT EmpNo, "First Name", LastName, CAST(Salary AS INTEGER) % 2.0 as "New Salary" FROM EmpTable;
+
+SELECT EmpNo, "First Name", LastName, Salary ^ 2 as "New Salary" FROM EmpTable;
+
+SELECT 5!
+
+SELECT @(-5)
+
+SELECT 2 & 3
+
+SELECT 2 | 3
+
+SELECT 2 # 3
+
+SELECT ~ 3
+
+SELECT 1 << 4
+
+SELECT 8>>2
+
+SELECT * FROM EmpTable WHERE Salary =1000;
+
+SELECT * FROM EmpTable WHERE Salary <> 1000;
+
+SELECT * FROM EmpTable WHERE Salary != 1000;
+
+SELECT * FROM EmpTable WHERE Salary > 1000;
+
+SELECT * FROM EmpTable WHERE Salary >= 1000;
+
+SELECT * FROM EmpTable WHERE Salary < 1000;
+
+SELECT * FROM EmpTable WHERE Salary <= 1000;
+SELECT Salary * Salary FROM EmpTable; SELECT Salary / Salary FROM EmpTable;
+
+SELECT Salary + Salary FROM EmpTable; SELECT Salary - Salary FROM EmpTable;
+SELECT EmpNo, "First Name", LastName, Salary * 2 AS NewSalary FROM EmpTable WHERE Salary * 2 >=5000;
+
+
+SELECT * FROM EmpTable WHERE 1 = 2;
+
+SELECT * FROM EmpTable WHERE 'AKASH' = 'AKASH';
+Using Logical Operators in SELECT Statement
+
+SELECT * FROM EmpTable WHERE City = 'MUMBAI' AND Salary <= 2000;
+
+SELECT * FROM EmpTable WHERE City = 'MUMBAI' AND "First Name" = 'AKASH';
+
+SELECT * FROM EmpTable WHERE City = 'MUMBAI' OR Salary >= 2000;
+
+SELECT * FROM EmpTable WHERE NOT City = 'MUMBAI';
+
+
+SELECT * FROM EmpTable WHERE City = 'MUMBAI' OR City = 'THANE' AND Salary > 2000;
+
+SELECT * FROM EmpTable WHERE LOWER(City) = 'mumbai' OR (LOWER (City) = 'thane' AND Salary > 2000);
+operator.
+
+SELECT * FROM EmpTable WHERE (City = 'THANE' OR City = 'MUMBAI') AND Salary > 2000;
+
+SELECT * FROM EmpTable WHERE City = 'THANE' AND NOT Salary > 2000;
+
+SELECT * FROM EmpTable WHERE City = 'THANE' AND Salary <= 2000;
+
+SELECT * FROM EmpTable WHERE City = 'THANE' OR City = 'MUMBAI' AND Salary <= 2000;
+
+SELECT * FROM EmpTable WHERE City = 'THANE' OR (City = 'MUMBAI' AND Salary <= 2000);
+
+SELECT * FROM EmpTable WHERE City = 'THANE' OR City = 'MUMBAI' AND NOT Salary > 2000;
+
+SELECT * FROM EmpTable WHERE Salary IN (1000, 3000);
+SELECT * FROM EmpTable WHERE Salary BETWEEN 1000 AND 3000;
+
+SELECT * FROM EmpTable WHERE Salary >= 1000 AND Salary <=3000;
+SELECT * FROM EmpTable WHERE Salary::TEXT LIKE '%0';
+
+SELECT * FROM EmpTable WHERE Salary::TEXT LIKE '%1';
+
+SELECT * FROM EmpTable WHERE Salary::TEXT LIKE '%50';
+
+SELECT * FROM EmpTable WHERE Salary::TEXT LIKE '1000%';
+
+SELECT * FROM EmpTable WHERE Salary::TEXT LIKE '100%';
+
+SELECT * FROM EmpTable WHERE Salary::TEXT LIKE '10%';
+
+
+SELECT * FROM EmpTable WHERE Salary::TEXT NOT LIKE '1000%';
+
+SELECT * FROM EmpTable WHERE Salary::TEXT NOT LIKE '100%';
+
+SELECT * FROM EmpTable WHERE Salary::TEXT NOT LIKE '10%';
+
+SELECT * FROM EmpTable WHERE Salary::TEXT LIKE '1%';
+
+SELECT * FROM EmpTable WHERE Salary::TEXT NOT LIKE '1%';
+
+
+SELECT * FROM EmpTable WHERE Salary::TEXT LIKE '_';
+
+SELECT * FROM EmpTable WHERE Salary::TEXT LIKE '____';
+
+SELECT * FROM EmpTable WHERE Salary::TEXT LIKE '_000';
+
+SELECT * FROM EmpTable WHERE Salary::TEXT LIKE '1_00';
+
+SELECT * FROM EmpTable WHERE Salary::TEXT NOT LIKE '1_00';
+
+SELECT * FROM EmpTable WHERE "First Name" LIKE 'A%';
+
+SELECT * FROM EmpTable WHERE "First Name" LIKE 'a%';
+
+SELECT * FROM EmpTable WHERE UPPER("First Name") LIKE 'A%';
+
+SELECT * FROM EmpTable WHERE LOWER("First Name") LIKE 'a%';
+
+SELECT * FROM EmpTable WHERE "First Name" LIKE '__A%';
+
+SELECT * FROM EmpTable WHERE "First Name" LIKE '%SH%';
+
+SELECT * FROM EmpTable WHERE "First Name" LIKE '%NT';
+
+
+INSERT INTO EmpTable VALUES(100, 'AAA_', 'XYZ', 'XXX', 'YYY', 'ZZZ', 1);
+
+INSERT INTO EmpTable VALUES(101, 'AAA_AAA', 'XYZ', 'XXX', 'YYY', 'ZZZ', 2);
+
+INSERT INTO EmpTable VALUES(102, '%BBB', 'XYZ', 'XXX', 'YYY', 'ZZZ', 3);
+
+
+SELECT * FROM EmpTable WHERE "First Name" LIKE '%!_' ESCAPE '!';
+
+SELECT * FROM EmpTable WHERE "First Name" LIKE '%?_A%' ESCAPE '?';
+
+SELECT * FROM EmpTable WHERE "First Name" LIKE '%X_A%' ESCAPE 'X';
+
+
+SELECT * FROM EmpTable WHERE "First Name" LIKE '%\_A%' ESCAPE '\';
+
+SELECT * FROM EmpTable WHERE "First Name" LIKE '$%%' ESCAPE '$';
+INSERT INTO EmpTable
+
+(EmpNo, "First Name", LastName, Address, City, State, Salary)
+
+VALUES(1001, 'AAA', 'BBB', 'CCC', 'DDD', 'EEE', 9000);
+
+
+INSERT INTO EmpTable
+
+(EmpNo, "First Name", LastName, Address, City, State, Salary)
+
+VALUES(1002, 'FFF', 'GGG', 'HHH', 'III', 'JJJ', 9001);
+UPDATE EmpTable SET Salary = 1000;
+
+SELECT * FROM EmpTable;
+UPDATE EmpTable SET Salary = 5000, Address = 'New Address'
+UPDATE EmpTable SET "First Name" = 'aaa' WHERE "EmpNo" = 1001;
+
+SELECT * FROM EmpTable WHERE EmpNo =1001;
+
+UPDATE EmpTable SET Salary = NULL WHERE EmpNo >= 100;
+
+DELETE FROM EmpTable WHERE EmpNo = 1001;
+
+DELETE FROM EmpTable WHERE EmpNo NOT IN (1001, 1002);
+DELETE FROM EmpTable WHERE EmpNo ^= 1001 AND EmpNo ^= 1002;
+DELETE FROM EmpTable WHERE EmpNo BETWEEN 1001 AND 1002;
+
+SELECT * FROM EmpTable WHERE EmpNo BETWEEN 1001 AND 1002;
+SELECT * FROM EmpTable WHERE firstname BETWEEN 'A%' AND 'G%';
+DELETE FROM EmpTable WHERE EmpNo NOT BETWEEN 1001 AND 1002;
+DELETE FROM EmpTable WHERE EmpNo > ANY(1001, 1002);
+DELETE FROM EmpTable WHERE EmpNo = SOME(1001, 1002);
+DELETE FROM EmpTable WHERE NOT EmpNo  > ANY(10, 20, 30);
+DELETE FROM EmpTable WHERE "First Name" LIKE 'T%';
